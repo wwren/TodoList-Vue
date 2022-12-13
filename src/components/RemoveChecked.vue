@@ -26,6 +26,7 @@ button {
   background-repeat: repeat-y;
   border: 1px solid grey;
   padding: 0 20px;
+  font-family: "Josefin Sans";
 }
 button:hover {
   cursor: pointer;

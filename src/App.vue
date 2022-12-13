@@ -103,6 +103,7 @@ body {
   );
   height: 100vh;
   overflow: hidden;
+  font-family: "Josefin Sans";
 }
 
 .todo-list-bottom {
