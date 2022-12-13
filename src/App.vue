@@ -95,7 +95,7 @@ export default {
 <style>
 .todo-list-container {
   text-align: center;
-  width: 50%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -119,6 +119,16 @@ body {
 .todo-list-bottom {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 10px;
+}
+
+@media (min-width: 821px) {
+  .todo-list-container {
+    width: 50%;
+  }
+
+  .todo-list-bottom {
+    padding: 0 20px;
+  }
 }
 </style>

@@ -29,7 +29,7 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 ul li {
@@ -38,5 +38,11 @@ ul li {
 
 ul li:last-child {
   border-bottom: 0.5px solid grey;
+}
+
+@media (min-width: 821px) {
+  ul {
+    padding: 0 20px;
+  }
 }
 </style>

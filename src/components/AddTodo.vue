@@ -40,7 +40,7 @@ export default {
   align-items: center;
   border: 2px solid grey;
   width: 80%;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .add-to-do-icon-container {
   background-image: linear-gradient(
@@ -61,5 +61,11 @@ export default {
   height: 40px;
   border: none;
   outline: none;
+}
+
+@media (min-width: 821px) {
+  .add-to-do-input-container {
+    margin-left: 20px;
+  }
 }
 </style>
