@@ -11,7 +11,6 @@
 
 - [Description](#description)
 - [Technologies](#technologies)
-- [What I learned](#what-i-learned)
 - [License](#license)
 - [Author Info](#get-in-touch)
 
