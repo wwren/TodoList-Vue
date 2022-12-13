@@ -11,23 +11,47 @@
       <p :class="{ done: todo.done }">{{ todo.task }}</p>
     </div>
     <div class="todo-tool">
-      <i class="fa-solid fa-pen" @click="$emit('editTodo', todo.id)"></i>
+      <i class="fa-solid fa-pen" @click="toggleModal"></i>
       <i class="fa-solid fa-xmark" @click="$emit('deleteTodo', todo.id)"></i>
     </div>
+    <Modal
+      @close="toggleModal"
+      :modalActive="modalActive"
+      @save="$emit('save', { id: todo.id, task: newTodo })"
+    >
+      <div class="modal-content">
+        <h2>Edit todo</h2>
+        <div class="edit-todo-input">
+          <input type="text" v-model="newTodo" />
+        </div>
+      </div>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal.vue";
+import { ref } from "vue";
+
 export default {
   name: "Todo",
-  // data() {
-  //   return {
-  //     check: false,
-  //   };
-  // },
   props: {
     todo: Object,
-    // checked: Boolean,
+  },
+  components: {
+    Modal,
+  },
+  data() {
+    return {
+      newTodo: this.todo.task,
+    };
+  },
+  setup() {
+    const modalActive = ref(false);
+    const toggleModal = () => {
+      modalActive.value = !modalActive.value;
+    };
+    return { modalActive, toggleModal };
   },
 };
 </script>
@@ -59,5 +83,30 @@ input:hover {
 }
 .todo-tool i {
   cursor: pointer;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+.edit-todo-input {
+  border: 1px solid grey;
+  width: 50%;
+  margin: 0 auto 16px;
+  height: 40px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.edit-todo-input input {
+  border: none;
+  width: 80%;
+  outline: none;
+  cursor: text;
 }
 </style>

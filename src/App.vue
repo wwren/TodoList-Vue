@@ -2,7 +2,12 @@
   <div class="todo-list-container">
     <h1>To do list</h1>
     <AddTodo @addTodo="addTodo" />
-    <Todos :todos="todos" @toggleDone="toggleDone" @deleteTodo="deleteTodo" />
+    <Todos
+      :todos="todos"
+      @toggleDone="toggleDone"
+      @deleteTodo="deleteTodo"
+      @save="save"
+    />
     <div class="todo-list-bottom">
       <DoneSummary
         :completedTask="completedTask"
@@ -46,6 +51,11 @@ export default {
     },
     removeChecked() {
       this.todos = this.todos.map((todo) => ({ ...todo, done: false }));
+    },
+    save(newTodo) {
+      this.todos = this.todos.map((todo) =>
+        todo.id !== newTodo.id ? todo : { ...todo, task: newTodo.task }
+      );
     },
   },
   computed: {

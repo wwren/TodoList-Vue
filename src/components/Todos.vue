@@ -5,6 +5,7 @@
         :todo="todo"
         @toggleDone="$emit('toggleDone', todo.id)"
         @deleteTodo="$emit('deleteTodo', todo.id)"
+        @save="(payload) => $emit('save', payload)"
       />
     </li>
   </ul>
@@ -21,7 +22,7 @@ export default {
   components: {
     Todo,
   },
-  emits: ["toggleDone"],
+  emits: ["toggleDone", "save"],
 };
 </script>
 
